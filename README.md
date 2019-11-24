@@ -89,3 +89,150 @@ número de grupos multicast.
 ### Tabla de direccionamiento
 
 ![alt text](https://github.com/brahianf/RIP_NG/blob/master/TABLADIRECIONAMIENTO.PNG)
+
+### Comandos CLI
+
+	* R0
+	
+	```
+	Router>enable
+	Router#configure terminal
+	Router(config)#hostname R0
+	R0(config)#ipv6 unicast-routing 
+	R0(config)#ipv6 router rip LANNG
+	R0(config)#ipv6 route 0::0/0 Serial0/0/1
+	
+	R0(config)#interface fastEthernet 0/0
+	R0(config-if)ipv6 address 2001:db8:10::1/64
+	R0(config-if)#ipv6 enable 
+	R0(config-if)#ipv6 rip LANNG enable 
+	R0(config-if)#no shutdown 
+	R0(config-if)#exit
+	
+	R0(config)#interface fastEthernet 0/1
+	R0(config-if)#ipv6 address 2001:db8:172:16::1/64
+	R0(config-if)#ipv6 enable 
+	R0(config-if)#ipv6 rip LANNG enable 
+	R0(config-if)#no shutdown 
+	R0(config-if)#exit
+	
+	R0(config)#interface serial 0/0/0
+	R0(config-if)#ipv6 address 2001:db8:172:17::1/64
+	R0(config-if)#ipv6 enable 
+	R0(config-if)#ipv6 rip LANNG enable 
+	R0(config-if)#clock rate 64000
+	R0(config-if)#no shutdown 
+	R0(config-if)#exit
+	
+	R0(config)#interface serial 0/0/1
+	R0(config-if)#ipv6 address 2001:DB8:200::2/64
+	R0(config-if)#ipv6 rip LANNG default-information originate 
+	R0(config-if)#no shutdown 
+	R0(config-if)#exit
+	R0(config)#exit
+	R0#copy running-config startup-config 
+	```
+
+		* R1
+	
+	```
+	Router>enable 
+	Router#configure terminal 
+	Router(config)#hostname R1
+	R1(config)#ipv6 unicast-routing 
+	R1(config)#ipv6 router rip LANNG 
+	R1(config-rtr)#exit
+
+	R1(config)#interface fastEthernet 0/0
+	R1(config-if)#ipv6 address 2001:db8:bb:fea::1/64
+	R1(config-if)#ipv6 enable 
+	R1(config-if)#ipv6 rip LANNG enable 
+	R1(config-if)#no shutdown 
+	R1(config-if)#exit
+	
+	R1(config)#interface fastEthernet 0/1
+	R1(config-if)#ipv6 address 2001:db8:172:16::2/64
+	R1(config-if)#ipv6 enable 
+	R1(config-if)#ipv6 rip LANNG enable 
+	R1(config-if)#no shutdown 
+	R1(config-if)#exit
+
+	R1(config)#interface serial 0/0/0
+	R1(config-if)#ipv6 address 001:db8:172:18::1/64
+	R1(config-if)#clock rate 64000
+	R1(config-if)#ipv6 enable 
+	R1(config-if)#ipv6 rip LANNG enable 
+	R1(config-if)#no shutdown 
+	R1(config-if)#exit
+	
+	R1(config)#exit
+	R1#copy running-config startup-config 
+	```
+	
+		* R2
+	
+	```
+	Router>enable 
+	Router#configure terminal 
+	Router(config)#hostname R2
+	R2(config)#ipv6 unicast-routing 
+	R2(config)#ipv6 router rip LANNG
+	R2(config-rtr)#exit
+	
+	R2(config)#interface fastEthernet 0/0
+	R2(config-if)#ipv6 address 2001:db8:bb:cafe::1/64
+	R2(config-if)#ipv6 enable 
+	R2(config-if)#ipv6 rip LANNG enable
+	R2(config-if)#no shutdown 
+	R2(config-if)#exit
+	
+	R2(config)#interface fastEthernet 0/1
+	R2(config-if)#ipv6 address 2001:db8:172:19::2/64
+	R2(config-if)#ipv6 enable 
+	R2(config-if)#ipv6 rip LANNG enable
+	R2(config-if)#no shutdown 
+	R2(config-if)#exit
+	
+	R2(config)#interface serial 0/0/0
+	R2(config-if)#ipv6 address 001:db8:172:18::2/64
+	R2(config-if)#ipv6 enable
+	R2(config-if)#ipv6 rip LANNG enable 
+	R2(config-if)#no shutdown 
+	R2(config-if)#exit
+	R2(config)#exit
+	R2#copy running-config startup-config 
+	```
+	
+		* R3
+	
+	```
+	Router>enable 
+	Router#configure terminal 
+	Router(config)#hostname R3
+	R3(config)#ipv6 unicast-routing 
+	R3(config)#ipv6 router rip LANNG 
+	R3(config-rtr)#exit
+	
+	R3(config)#interface fastEthernet 0/0
+	R3(config-if)#ipv6 address 2001:db8:20::1/64
+	R3(config-if)#ipv6 enable 
+	R3(config-if)#ipv6 rip LANNG enable 
+	R3(config-if)#no shutdown 
+	R3(config-if)#exit
+	
+	R3(config)#interface fastEthernet 0/1
+	R3(config-if)#ipv6 address 2001:db8:172:19::1/64
+	R3(config-if)#ipv6 enable 
+	R3(config-if)#ipv6 rip LANNG enable 
+	R3(config-if)#no shutdown 
+	R3(config-if)#exit
+	
+	R3(config)#interface serial 0/0/0
+	R3(config-if)#ipv6 address 2001:db8:172:17::2/64
+	R3(config-if)#ipv6 enable 
+	R3(config-if)#ipv6 rip LANNG enable 
+	R3(config-if)#no shutdown 
+	R3(config-if)#exit
+	R3(config)#exit
+	R3#copy running-config startup-config 
+	```

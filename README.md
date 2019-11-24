@@ -40,7 +40,7 @@ Tabla mensajes de actualizaciones enviados por RIPng.
 
 | 				RIPng						| 
 | ----------------------------------------- | 
- * Los mensajes RIPng se encapsulan en	datagramas UDP dirigidos al puerto 521	y se difunden a la dirección IPv6		multicast FF02::9|
+| * Los mensajes RIPng se encapsulan en	datagramas UDP dirigidos al puerto 521	y se difunden a la dirección IPv6		multicast FF02::9|
 | * RIPng (RIP new generation) es la adaptación del protocolo RIP-2 para soportar la compatibilidad con IPv6|		
 | * Los vectores de distancia contenidos en los mensajes de tipo RESPONSE, en		 lugar de direcciones de red IPv4, anuncian prefijos de red IPv6|			
 | * La información de ruta contenida en un vector de distancia no incluye el campo “Next Hop”.|								

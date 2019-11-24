@@ -79,3 +79,13 @@ Anycast, Multicast.
 Una dirección multicast IPv6 es un identificador para un grupo de interfaces
 (normalmente en diferentes nodos). Una interface puede pertenecer a cualquier
 número de grupos multicast.
+
+###	Enrutamiento dinámico con RIPng
+
+### Topología de red
+
+![alt text](https://github.com/brahianf/RIP_NG/blob/master/TOPOLOGIARED.PNG)
+
+### Tabla de direccionamiento
+
+![alt text](https://github.com/brahianf/RIP_NG/blob/master/TABLADIRECIONAMIENTO.PNG)

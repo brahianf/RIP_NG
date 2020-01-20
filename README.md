@@ -112,7 +112,8 @@ número de grupos multicast.
 	R0(config)#interface fastEthernet 0/1
 	R0(config-if)#ipv6 address 2001:db8:172:16::1/64
 	R0(config-if)#ipv6 enable 
-	R0(config-if)#ipv6 rip LANNG enable 
+	R0(config-if)#ipv6 rip LANNG enable
+	R0(config-if)#ipv6 rip LANNG default-information originate 
 	R0(config-if)#no shutdown 
 	R0(config-if)#exit
 	
@@ -120,6 +121,7 @@ número de grupos multicast.
 	R0(config-if)#ipv6 address 2001:db8:172:17::1/64
 	R0(config-if)#ipv6 enable 
 	R0(config-if)#ipv6 rip LANNG enable 
+	R0(config-if)#ipv6 rip LANNG default-information originate 
 	R0(config-if)#clock rate 64000
 	R0(config-if)#no shutdown 
 	R0(config-if)#exit
@@ -239,4 +241,4 @@ número de grupos multicast.
 	
 	### RIP_NG.pkt
 	
-	https://github.com/brahianf/RIP_NG/blob/master/RIP_NG.pkt
+	https://github.com/brahianf/RIP_NG/blob/master/RIP_NG.pkt?raw=true
